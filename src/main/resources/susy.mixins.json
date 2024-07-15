@@ -1,0 +1,14 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "belletti.supersymmetry.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "belletti.supersymmetry.mixin.SuSyMixinPlugin",
+  "mixins": [],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1,
+    "maxShiftBy": 2
+  }
+}

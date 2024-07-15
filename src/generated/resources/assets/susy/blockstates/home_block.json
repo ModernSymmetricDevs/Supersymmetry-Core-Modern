@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "facing=east,variant=gt_brutalist": {
+      "model": "susy:block/home_block_gt_brutalist"
+    },
+    "facing=east,variant=primitive": {
+      "model": "susy:block/home_block_primitive"
+    },
+    "facing=east,variant=renewal_brutalist": {
+      "model": "susy:block/home_block_renewal_brutalist"
+    },
+    "facing=east,variant=scifi": {
+      "model": "susy:block/home_block_scifi"
+    },
+    "facing=north,variant=gt_brutalist": {
+      "model": "susy:block/home_block_gt_brutalist"
+    },
+    "facing=north,variant=primitive": {
+      "model": "susy:block/home_block_primitive"
+    },
+    "facing=north,variant=renewal_brutalist": {
+      "model": "susy:block/home_block_renewal_brutalist"
+    },
+    "facing=north,variant=scifi": {
+      "model": "susy:block/home_block_scifi"
+    },
+    "facing=south,variant=gt_brutalist": {
+      "model": "susy:block/home_block_gt_brutalist"
+    },
+    "facing=south,variant=primitive": {
+      "model": "susy:block/home_block_primitive"
+    },
+    "facing=south,variant=renewal_brutalist": {
+      "model": "susy:block/home_block_renewal_brutalist"
+    },
+    "facing=south,variant=scifi": {
+      "model": "susy:block/home_block_scifi"
+    },
+    "facing=west,variant=gt_brutalist": {
+      "model": "susy:block/home_block_gt_brutalist"
+    },
+    "facing=west,variant=primitive": {
+      "model": "susy:block/home_block_primitive"
+    },
+    "facing=west,variant=renewal_brutalist": {
+      "model": "susy:block/home_block_renewal_brutalist"
+    },
+    "facing=west,variant=scifi": {
+      "model": "susy:block/home_block_scifi"
+    }
+  }
+}

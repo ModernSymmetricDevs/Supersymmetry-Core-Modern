@@ -1,0 +1,6 @@
+{
+  "ldlib": {
+    "connection": "susy:block/multiblock_casing/drone_pad_ctm",
+    "emissive": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "susy:block/casings/wooden_coagulation_tank_wall/bottom",
+    "side": "susy:block/casings/wooden_coagulation_tank_wall/side",
+    "top": "susy:block/casings/wooden_coagulation_tank_wall/top"
+  }
+}

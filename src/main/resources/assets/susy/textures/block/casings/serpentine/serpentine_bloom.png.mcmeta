@@ -1,0 +1,9 @@
+{
+  "ldlib": {
+    "connection": "susy:block/casings/serpentine/serpentine_bloom_ctm",
+    "emissive": true
+  },
+  "shimmer": {
+    "bloom": true
+  }
+}

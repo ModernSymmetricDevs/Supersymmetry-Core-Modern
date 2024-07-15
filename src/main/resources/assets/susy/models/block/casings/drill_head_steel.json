@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "#side",
+    "side": "susy:block/casings/drill_head/steel/side",
+    "top": "susy:block/casings/drill_head/steel/top"
+  }
+}

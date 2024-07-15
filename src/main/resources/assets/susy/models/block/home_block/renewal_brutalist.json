@@ -1,0 +1,9 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "front": "susy:block/home_block/renewal_brutalist/renewal_brutalist_front",
+    "side": "susy:block/home_block/renewal_brutalist/renewal_brutalist_left",
+    "south": "susy:block/home_block/renewal_brutalist/renewal_brutalist_back",
+    "top": "susy:block/home_block/renewal_brutalist/renewal_brutalist_top"
+  }
+}

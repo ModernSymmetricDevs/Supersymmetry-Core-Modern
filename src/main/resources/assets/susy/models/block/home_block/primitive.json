@@ -1,0 +1,9 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "front": "susy:block/home_block/primitive/primitive_front",
+    "side": "susy:block/home_block/primitive/primitive_left",
+    "south": "susy:block/home_block/primitive/primitive_back",
+    "top": "susy:block/home_block/primitive/primitive_top"
+  }
+}

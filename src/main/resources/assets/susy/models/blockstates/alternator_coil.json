@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "susy:block/casings/alternator_coil_copper" },
+    "facing=south": { "model": "susy:block/casings/alternator_coil_copper", "y": 180 },
+    "facing=west": { "model": "susy:block/casings/alternator_coil_copper", "y": 270 },
+    "facing=east": { "model": "susy:block/casings/alternator_coil_copper", "y": 90 }
+  }
+}
