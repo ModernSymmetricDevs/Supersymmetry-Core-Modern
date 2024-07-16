@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "susy:block/casings/separator_rotor_steel" },
-    "facing=south": { "model": "susy:block/casings/separator_rotor_steel", "y": 180 },
-    "facing=west": { "model": "susy:block/casings/separator_rotor_steel", "y": 270 },
-    "facing=east": { "model": "susy:block/casings/separator_rotor_steel", "y": 90 }
-  }
-}

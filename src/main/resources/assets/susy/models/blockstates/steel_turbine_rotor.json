@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "susy:block/casings/steel_turbine_rotor" },
-    "facing=south": { "model": "susy:block/casings/steel_turbine_rotor", "y": 180 },
-    "facing=west": { "model": "susy:block/casings/steel_turbine_rotor", "y": 270 },
-    "facing=east": { "model": "susy:block/casings/steel_turbine_rotor", "y": 90 }
-  }
-}

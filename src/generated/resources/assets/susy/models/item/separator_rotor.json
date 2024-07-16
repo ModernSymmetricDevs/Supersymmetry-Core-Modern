@@ -1,3 +1,9 @@
 {
-  "parent": "susy:block/separator_rotor"
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "susy:block/casings/separator_rotor_steel",
+      "predicate": {}
+    }
+  ]
 }

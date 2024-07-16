@@ -86,11 +86,11 @@ public class SuSyBlocks {
                 .properties(p -> p
                         .isValidSpawn((state, level, pos, ent) -> false)
                         .strength(5.0f, 10.0f))
-                .blockstate((ctx, prov) -> {
-                    prov.horizontalBlock(ctx.getEntry(), new ModelFile.UncheckedModelFile(Supersymmetry.id("block/casings/alternator_coil_copper")));
-                })
+                .blockstate((ctx, prov) -> prov.horizontalBlock(ctx.getEntry(), new ModelFile.UncheckedModelFile(Supersymmetry.id("block/casings/alternator_coil_copper"))))
                 .tag(SuSyTags.MINEABLE_WITH_WRENCH)
                 .item(RendererBlockItem::new)
+                .model((ctx, prov) -> prov.withExistingParent(ctx.getName(), new ResourceLocation("item/generated"))
+                        .override().model(new ModelFile.UncheckedModelFile(Supersymmetry.id("block/casings/alternator_coil_copper"))))
                 .build()
                 .register();
 
@@ -101,11 +101,11 @@ public class SuSyBlocks {
                 .properties(p -> p
                         .isValidSpawn((state, level, pos, ent) -> false)
                         .strength(5.0f, 10.0f))
-                .blockstate((ctx, prov) -> {
-                    prov.horizontalBlock(ctx.getEntry(), new ModelFile.UncheckedModelFile(Supersymmetry.id("block/casings/steel_turbine_rotor")));
-                })
+                .blockstate((ctx, prov) -> prov.horizontalBlock(ctx.getEntry(), new ModelFile.UncheckedModelFile(Supersymmetry.id("block/casings/steel_turbine_rotor"))))
                 .tag(SuSyTags.MINEABLE_WITH_WRENCH)
                 .item(RendererBlockItem::new)
+                .model((ctx, prov) -> prov.withExistingParent(ctx.getName(), new ResourceLocation("item/generated"))
+                        .override().model(new ModelFile.UncheckedModelFile(Supersymmetry.id("block/casings/steel_turbine_rotor"))))
                 .build()
                 .register();
 
@@ -116,11 +116,11 @@ public class SuSyBlocks {
                 .properties(p -> p
                         .isValidSpawn((state, level, pos, ent) -> false)
                         .strength(5.0f, 10.0f))
-                .blockstate((ctx, prov) -> {
-                    prov.horizontalBlock(ctx.getEntry(), new ModelFile.UncheckedModelFile(Supersymmetry.id("block/casings/separator_rotor_steel")));
-                })
+                .blockstate((ctx, prov) -> prov.horizontalBlock(ctx.getEntry(), new ModelFile.UncheckedModelFile(Supersymmetry.id("block/casings/separator_rotor_steel"))))
                 .tag(SuSyTags.MINEABLE_WITH_WRENCH)
                 .item(RendererBlockItem::new)
+                .model((ctx, prov) -> prov.withExistingParent(ctx.getName(), new ResourceLocation("item/generated"))
+                        .override().model(new ModelFile.UncheckedModelFile(Supersymmetry.id("block/casings/separator_rotor_steel"))))
                 .build()
                 .register();
 
