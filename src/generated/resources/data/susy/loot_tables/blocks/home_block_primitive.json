@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:home_block"
+          "name": "susy:home_block_primitive"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:block/home_block"
+  "random_sequence": "susy:blocks/home_block_primitive"
 }

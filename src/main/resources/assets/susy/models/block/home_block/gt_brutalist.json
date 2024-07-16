@@ -1,9 +1,11 @@
 {
-  "parent": "block/orientable",
+  "parent": "block/cube",
   "textures": {
-    "front": "susy:block/home_block/gt_brutalist/brutalist_front",
-    "side": "susy:block/home_block/gt_brutalist/brutalist_left",
-    "south": "susy:block/home_block/gt_brutalist/brutalist_back",
-    "top": "susy:block/home_block/gt_brutalist/brutalist_top"
+    "down": "susy:block/home_block/gt_brutalist/gt_brutalist_bottom",
+    "up": "susy:block/home_block/gt_brutalist/gt_brutalist_top",
+    "north": "susy:block/home_block/gt_brutalist/gt_brutalist_front",
+    "south": "susy:block/home_block/gt_brutalist/gt_brutalist_back",
+    "west": "susy:block/home_block/gt_brutalist/gt_brutalist_left",
+    "east": "susy:block/home_block/gt_brutalist/gt_brutalist_right"
   }
 }

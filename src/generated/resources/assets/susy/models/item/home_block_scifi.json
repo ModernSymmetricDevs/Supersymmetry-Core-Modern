@@ -1,3 +1,9 @@
 {
-  "parent": "susy:item/scifi"
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "susy:block/home_block/scifi",
+      "predicate": {}
+    }
+  ]
 }

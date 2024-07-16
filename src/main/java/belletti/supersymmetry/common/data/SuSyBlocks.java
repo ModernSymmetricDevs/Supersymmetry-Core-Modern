@@ -12,6 +12,7 @@ import com.lowdragmc.lowdraglib.client.renderer.impl.IModelRenderer;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -25,10 +26,6 @@ import static belletti.supersymmetry.api.registries.SuSyRegistries.REGISTRATE;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.compassNodeExist;
 
 public class SuSyBlocks {
-    static {
-        REGISTRATE.creativeModeTab(() -> SuSyCreativeModeTabs.SUSY);
-    }
-
     public static EnumMap<BlockCoolingCoil.CoolingCoilType, BlockEntry<BlockCoolingCoil>> COOLING_COIL_BLOCKS = new EnumMap<>(BlockCoolingCoil.CoolingCoilType.class);
 
     public static final BlockEntry<BlockSinteringBrick> SINTERING_BRICK = createSinteringBrick(BlockSinteringBrick.SinteringBrickType.BRICK);
@@ -46,7 +43,7 @@ public class SuSyBlocks {
     public static EnumMap<BlockDeposit.DepositBlockType, BlockEntry<BlockDeposit>> DEPOSIT_BLOCKS = new EnumMap<>(BlockDeposit.DepositBlockType.class);
 
     public static EnumMap<BlockResource.ResourceBlockType, BlockEntry<BlockResource>> RESOURCE_BLOCKS = new EnumMap<>(BlockResource.ResourceBlockType.class);
-    public static BlockEntry<HomeBlock> HOME;
+    public static EnumMap<HomeBlock.HomeType, BlockEntry<HomeBlock>> HOME_BLOCKS = new EnumMap<>(HomeBlock.HomeType.class);
     public static EnumMap<BlockMultiblockTank.MultiblockTankType, BlockEntry<BlockMultiblockTank>> MULTIBLOCK_TANK = new EnumMap<>(BlockMultiblockTank.MultiblockTankType.class);
     public static BlockEntry<BlockEvaporationBed> EVAPORATION_BED = createEvaporationBedBlock(BlockEvaporationBed.EvaporationBedType.DIRT); //
     public static BlockEntry<BlockElectrodeAssembly> ELECTRODE_ASSEMBLY_CARBON = createElectrodeAssemblyBlock(BlockElectrodeAssembly.ElectrodeAssemblyType.CARBON);
@@ -55,6 +52,7 @@ public class SuSyBlocks {
     // @TODO: CTM
 
     public static void init() {
+        REGISTRATE.creativeModeTab(() -> SuSyCreativeModeTabs.SUSY);
         registerCoolingCoilBlocks();
         registerSuSyStoneVariantBlocks();
         registerDecorativeStructuralBlocks();
@@ -62,42 +60,7 @@ public class SuSyBlocks {
         registerResourceBlocks();
         registerMultiblockTankBlocks();
         registerSuSyMultiblockCasingBlocks();
-
-        // @TODO: toggle block variant, as well register other block schematics
-        HOME = REGISTRATE
-                .block("home_block", HomeBlock::new)
-                .lang("Home Block")
-                .tag(SuSyTags.MINEABLE_WITH_WRENCH, BlockTags.MINEABLE_WITH_PICKAXE)
-                .initialProperties(() -> Blocks.IRON_BLOCK)
-                .properties(p -> p
-                        .destroyTime(0.5f)
-                        .sound(SoundType.METAL)
-                )
-                .blockstate((ctx, prov) -> prov.getVariantBuilder(ctx.getEntry())
-                        .forAllStates(state -> {
-                            HomeBlock.HomeType type = state.getValue(HomeBlock.VARIANT);
-                            return ConfiguredModel.builder()
-                                    .modelFile(prov.models().cube(
-                                            ctx.getName() + "_" + type.getSerializedName(),
-                                            prov.modLoc("block/home_block/" + type.getSerializedName() + "/" + type.getSerializedName() + "_bottom"),
-                                            prov.modLoc("block/home_block/" + type.getSerializedName() + "/" + type.getSerializedName() + "_top"),
-                                            prov.modLoc("block/home_block/" + type.getSerializedName() + "/" + type.getSerializedName() + "_front"),
-                                            prov.modLoc("block/home_block/" + type.getSerializedName() + "/" + type.getSerializedName() + "_back"),
-                                            prov.modLoc("block/home_block/" + type.getSerializedName() + "/" + type.getSerializedName() + "_right"),
-                                            prov.modLoc("block/home_block/" + type.getSerializedName() + "/" + type.getSerializedName() + "_right")
-                                    ))
-                                    .build();
-                        }))
-                .item()
-                .defaultModel()
-                .model((ctx, prov) -> {
-                    prov.withExistingParent(ctx.getName() + "_primitive", prov.modLoc("item/primitive"));
-                    prov.withExistingParent(ctx.getName() + "_gt_brutalist", prov.modLoc("item/gt_brutalist"));
-                    prov.withExistingParent(ctx.getName() + "_renewal_brutalist", prov.modLoc("item/renewal_brutalist"));
-                    prov.withExistingParent(ctx.getName() + "_scifi", prov.modLoc("item/scifi"));
-                })
-                .build()
-                .register();
+        registerHomeblocks();
 
         COAGULATION_TANK_WALL = REGISTRATE
                 .block("coagulation_tank_wall", p -> (Block) new RendererBlock(p,
@@ -372,6 +335,26 @@ public class SuSyBlocks {
                     .build()
                     .register();
             SUSY_MULTIBLOCK_CASING_BLOCKS.put(type, blockEntry);
+        }
+    }
+
+    private static void registerHomeblocks() {
+        for (HomeBlock.HomeType type : HomeBlock.HomeType.values()) {
+            BlockEntry<HomeBlock> block = REGISTRATE
+                    .block("home_block_%s".formatted(type.getResourceSuffix()), HomeBlock::new)
+                    .lang(type.getName())
+                    .initialProperties(() -> Blocks.IRON_BLOCK)
+                    .properties(p -> p
+                            .isValidSpawn((state, level, pos, ent) -> false)
+                            .destroyTime(0.5f))
+                    .blockstate((ctx, prov) -> prov.horizontalBlock(ctx.getEntry(), new ModelFile.UncheckedModelFile(Supersymmetry.id("block/home_block/").withSuffix(type.getResourceSuffix()))))
+                    .tag(SuSyTags.MINEABLE_WITH_WRENCH)
+                    .item(RendererBlockItem::new)
+                    .model((ctx, prov) -> prov.withExistingParent(ctx.getName(), new ResourceLocation("item/generated"))
+                            .override().model(new ModelFile.UncheckedModelFile(Supersymmetry.id("block/home_block/").withSuffix(type.getResourceSuffix()))))
+                    .build()
+                    .register();
+            HOME_BLOCKS.put(type, block);
         }
     }
 

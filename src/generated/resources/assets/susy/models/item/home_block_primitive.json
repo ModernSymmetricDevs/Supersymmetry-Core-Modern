@@ -1,3 +1,9 @@
 {
-  "parent": "susy:item/primitive"
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "susy:block/home_block/primitive",
+      "predicate": {}
+    }
+  ]
 }

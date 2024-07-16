@@ -1,3 +1,9 @@
 {
-  "parent": "susy:item/gt_brutalist"
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "susy:block/home_block/gt_brutalist",
+      "predicate": {}
+    }
+  ]
 }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "susy:block/home_block/gt_brutalist",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "susy:block/home_block/gt_brutalist"
+    },
+    "facing=south": {
+      "model": "susy:block/home_block/gt_brutalist",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "susy:block/home_block/gt_brutalist",
+      "y": 270
+    }
+  }
+}
