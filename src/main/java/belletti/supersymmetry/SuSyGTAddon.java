@@ -1,9 +1,7 @@
 package belletti.supersymmetry;
 
 import belletti.supersymmetry.api.registries.SuSyRegistries;
-import belletti.supersymmetry.common.data.SuSyBlocks;
-import belletti.supersymmetry.common.data.SuSyRecipeConditions;
-import belletti.supersymmetry.common.data.SuSyRecipes;
+import belletti.supersymmetry.common.data.*;
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.addon.events.MaterialCasingCollectionEvent;
@@ -40,7 +38,8 @@ public class SuSyGTAddon implements IGTAddon {
 
     @Override
     public void registerCovers() {
-        IGTAddon.super.registerCovers();
+        SuSyCovers.init();
+        SuSyItems.init();
     }
 
 //    @Override

@@ -42,7 +42,6 @@ public class Supersymmetry {
 
 	public static void init() {
 		SuSyCreativeModeTabs.init();
-		SuSyItems.init();
 //		SuSyDatagen.init();
 
 		SuSyRegistries.REGISTRATE.registerRegistrate();
