@@ -51,6 +51,7 @@ public class SuSyMaterials {
         SuSyHighDegreeMaterials.init();
         SuSyUnknownCompositionMaterials.init();
 
+        // @TODO: this should get moved to kubejs
         GroovySuSyMaterials.init();
     }
 

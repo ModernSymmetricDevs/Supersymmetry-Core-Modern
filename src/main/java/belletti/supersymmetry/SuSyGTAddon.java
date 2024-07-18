@@ -1,5 +1,6 @@
 package belletti.supersymmetry;
 
+import belletti.supersymmetry.api.data.tag.SuSyTagPrefix;
 import belletti.supersymmetry.api.registries.SuSyRegistries;
 import belletti.supersymmetry.common.data.*;
 import com.gregtechceu.gtceu.api.addon.GTAddon;
@@ -70,5 +71,10 @@ public class SuSyGTAddon implements IGTAddon {
     @Override
     public void registerRecipeConditions() {
         SuSyRecipeConditions.init();
+    }
+
+    @Override
+    public void registerTagPrefixes() {
+        SuSyTagPrefix.init();
     }
 }

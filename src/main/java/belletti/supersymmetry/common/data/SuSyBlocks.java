@@ -6,7 +6,6 @@ import belletti.supersymmetry.common.block.*;
 import belletti.supersymmetry.data.recipe.SuSyTags;
 import com.gregtechceu.gtceu.api.block.RendererBlock;
 import com.gregtechceu.gtceu.api.item.RendererBlockItem;
-import com.gregtechceu.gtceu.common.data.GTCompassSections;
 import com.lowdragmc.lowdraglib.Platform;
 import com.lowdragmc.lowdraglib.client.renderer.impl.IModelRenderer;
 import com.tterrag.registrate.util.entry.BlockEntry;
@@ -17,13 +16,11 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 
 import java.util.EnumMap;
 
 import static belletti.supersymmetry.api.registries.SuSyRegistries.REGISTRATE;
-import static com.gregtechceu.gtceu.common.data.GTBlocks.compassNodeExist;
 
 public class SuSyBlocks {
     public static EnumMap<BlockCoolingCoil.CoolingCoilType, BlockEntry<BlockCoolingCoil>> COOLING_COIL_BLOCKS = new EnumMap<>(BlockCoolingCoil.CoolingCoilType.class);
@@ -157,7 +154,7 @@ public class SuSyBlocks {
                     .tag(SuSyTags.MINEABLE_WITH_WRENCH)
                     .item(RendererBlockItem::new)
                     .model(NonNullBiConsumer.noop())
-                    .onRegister(compassNodeExist(GTCompassSections.BLOCKS, "cooling_coil_block"))
+//                    .onRegister(compassNodeExist(GTCompassSections.BLOCKS, "cooling_coil_block"))
                     .build()
                     .register();
 
@@ -179,7 +176,7 @@ public class SuSyBlocks {
                 .tag(SuSyTags.MINEABLE_WITH_WRENCH)
                 .item(RendererBlockItem::new)
                 .model(NonNullBiConsumer.noop())
-                .onRegister(compassNodeExist(GTCompassSections.BLOCKS, "sintering_brick_block"))
+//                .onRegister(compassNodeExist(GTCompassSections.BLOCKS, "sintering_brick_block"))
                 .build()
                 .register();
     }

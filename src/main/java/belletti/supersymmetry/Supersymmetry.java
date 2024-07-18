@@ -42,6 +42,8 @@ public class Supersymmetry {
 
 	public static void init() {
 		SuSyCreativeModeTabs.init();
+		SuSyBlocks.init();
+
 		SuSyDatagen.init();
 
 		SuSyRegistries.REGISTRATE.registerRegistrate();
@@ -57,7 +59,6 @@ public class Supersymmetry {
 	@SubscribeEvent
 	public void registerMaterials(MaterialEvent event) {
 		SuSyMaterials.init();
-		SuSyBlocks.init();
 	}
 
 	@SubscribeEvent

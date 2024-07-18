@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "susy:block/susy_stones/shale_smooth"
+  }
+}
