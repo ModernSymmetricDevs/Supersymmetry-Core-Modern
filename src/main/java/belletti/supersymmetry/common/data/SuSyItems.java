@@ -42,7 +42,7 @@ public class SuSyItems {
             .lang("Air Vent Cover")
             .onRegister(attach(new CoverPlaceBehavior(SuSyCovers.AIR_VENT_COVER)))
             .onRegister(attach(new TooltipBehavior(lines -> {
-                lines.add(Component.translatable("metaitem.air_vent.tooltip.1", 1000));
+                lines.add(Component.translatable("metaitem.air_vent.tooltip.1", 100));
             })))
             .register();
 

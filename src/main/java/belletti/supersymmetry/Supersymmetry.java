@@ -42,7 +42,7 @@ public class Supersymmetry {
 
 	public static void init() {
 		SuSyCreativeModeTabs.init();
-//		SuSyDatagen.init();
+		SuSyDatagen.init();
 
 		SuSyRegistries.REGISTRATE.registerRegistrate();
 	}
