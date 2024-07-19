@@ -1289,6 +1289,37 @@ public class SuSyMachines {
                     Supersymmetry.id("block/multiblock/oceanic_drill"))
             .register();
 
+    public static final MultiblockMachineDefinition VacuumDistillationTower = REGISTRATE.multiblock("vacuum_distillation_tower", VacuumDistillationTower::new)
+            .rotationState(RotationState.NON_Y_AXIS)
+            .recipeType(SuSyRecipeTypes.VACUUM_DISTILLATION_RECIPES)
+            .appearanceBlock(GTBlocks.CASING_STEEL_SOLID)
+            .pattern(definition -> FactoryBlockPattern.start(RIGHT, BACK, UP)
+                    .aisle(" CSC  ", "CCCCCC", "CCCCCC", "CCCCCC", " CCC  ")
+                    .aisle(" CGC  ", "C#F#CC", "IFFF#P", "C#F#CC", " CCC  ")
+                    .aisle(" CCC  ", "C#F#CC", "CFFFCC", "C#F#CC", " CCC  ")
+                    .aisle(" XXX  ", "X#F#D ", "XFFFD ", "X#F#D ", " XXX  ").setRepeatable(1,12)
+                    .aisle(" DDD  ", "DDDDD ", "DDDDD ", "DDDDD ", " DDD  ")
+                    .where('S', Predicates.controller(Predicates.blocks(definition.get())))
+                    .where('G', Predicates.blocks(GTBlocks.CASING_TEMPERED_GLASS.get()))
+                    .where('P', Predicates.blocks(GTBlocks.CASING_STEEL_PIPE.get()))
+                    .where('F', Predicates.frames(GTMaterials.Steel))
+                    .where('C', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get())
+                            .or(Predicates.ability(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(3))
+                            .or(Predicates.ability(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(1))
+                            .or(Predicates.ability(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(1)))
+                    .where('I', Predicates.ability(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(1))
+                    .where('D', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get()))
+                    .where('X', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get())
+                            .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS_1X, PartAbility.EXPORT_FLUIDS_4X)
+                                    .setMinLayerLimited(1).setMaxLayerLimited(1))
+                            .or(Predicates.ability(PartAbility.MAINTENANCE).setExactLimit(1)))
+                    .where('#', Predicates.air())
+                    .build())
+            .workableCasingRenderer(
+                    GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
+                    Supersymmetry.id("block/multiblock/distillation_towers/vacuum_distillation_tower"))
+            .register();
+
     // Helpers //
 
     public static MachineDefinition[] registerSimpleMachines(String name,
