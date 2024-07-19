@@ -4,19 +4,25 @@ import belletti.supersymmetry.Supersymmetry;
 import belletti.supersymmetry.api.block.ISinteringBrickType;
 import belletti.supersymmetry.common.block.*;
 import belletti.supersymmetry.data.recipe.SuSyTags;
+import com.google.common.collect.ImmutableTable;
+import com.google.common.collect.Table;
 import com.gregtechceu.gtceu.api.block.RendererBlock;
 import com.gregtechceu.gtceu.api.item.RendererBlockItem;
+import com.gregtechceu.gtceu.common.data.GTModels;
+import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.lowdragmc.lowdraglib.Platform;
 import com.lowdragmc.lowdraglib.client.renderer.impl.IModelRenderer;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.ModelProvider;
 
 import java.util.EnumMap;
 
@@ -30,7 +36,6 @@ public class SuSyBlocks {
 
     public static BlockEntry<Block> COAGULATION_TANK_WALL;
 
-    public static final EnumMap<SuSyStoneVariantBlock.StoneType, EnumMap<SuSyStoneVariantBlock.StoneShape, BlockEntry<SuSyStoneVariantBlock>>> SUSY_STONE_BLOCKS = new EnumMap<>(SuSyStoneVariantBlock.StoneType.class);
     public static BlockEntry<AlternatorCoilBlock> ALTERNATOR_COIL;
     public static BlockEntry<TurbineRotorBlock> TURBINE_ROTOR;
     public static BlockEntry<SeparatorRotorBlock> SEPARATOR_ROTOR;
@@ -46,12 +51,22 @@ public class SuSyBlocks {
     public static BlockEntry<BlockElectrodeAssembly> ELECTRODE_ASSEMBLY_CARBON = createElectrodeAssemblyBlock(BlockElectrodeAssembly.ElectrodeAssemblyType.CARBON);
     public static EnumMap<BlockSuSyMultiblockCasing.CasingType, BlockEntry<BlockSuSyMultiblockCasing>> SUSY_MULTIBLOCK_CASING_BLOCKS = new EnumMap<>(BlockSuSyMultiblockCasing.CasingType.class);
     public static BlockEntry<BlockSerpentine> SERPENTINE = createSerpentineBlock(BlockSerpentine.SerpentineType.BASIC);
-    // @TODO: CTM
+
+    public static Table<SuSyStoneBlockType, SuSyStoneTypes, BlockEntry<Block>> STONE_BLOCKS;
+    public static BlockEntry<Block> GABBRO;
+    public static BlockEntry<Block> GNEISS;
+    public static BlockEntry<Block> LIMESTONE;
+    public static BlockEntry<Block> PHYLLITE;
+    public static BlockEntry<Block> QUARTZITE;
+    public static BlockEntry<Block> SHALE;
+    public static BlockEntry<Block> SLATE;
+    public static BlockEntry<Block> SOAPSTONE;
+    public static BlockEntry<Block> KIMBERLITE;
 
     public static void init() {
         REGISTRATE.creativeModeTab(() -> SuSyCreativeModeTabs.SUSY);
+        generateStoneBlocks();
         registerCoolingCoilBlocks();
-        registerSuSyStoneVariantBlocks();
         registerDecorativeStructuralBlocks();
         registerDepositBlocks();
         registerResourceBlocks();
@@ -139,6 +154,56 @@ public class SuSyBlocks {
                 .register();
     }
 
+    public static void generateStoneBlocks() {
+        ImmutableTable.Builder<SuSyStoneBlockType, SuSyStoneTypes, BlockEntry<Block>> builder = ImmutableTable.builder();
+        for (SuSyStoneTypes strata : SuSyStoneTypes.values()) {
+            if (!strata.generateBlocks) continue;
+            for (SuSyStoneBlockType type : SuSyStoneBlockType.values()) {
+                String blockId = type.blockId.formatted(strata.getSerializedName());
+                if (BuiltInRegistries.BLOCK.containsKey(new ResourceLocation(blockId))) continue;
+                var entry = REGISTRATE.block(blockId, Block::new)
+                        .initialProperties(() -> Blocks.STONE)
+                        .properties(p -> p.strength(type.hardness, type.resistance).mapColor(strata.mapColor))
+                        .transform(builder2 -> builder2)
+                        .tag(BlockTags.MINEABLE_WITH_PICKAXE, CustomTags.NEEDS_WOOD_TOOL)
+                        .loot((tables, block) -> {
+                            if (type == SuSyStoneBlockType.STONE) {
+                                tables.add(block, tables.createSingleItemTableWithSilkTouch(block,
+                                        STONE_BLOCKS.get(SuSyStoneBlockType.COBBLE, strata).get()));
+                            } else {
+                                tables.add(block, tables.createSingleItemTable(block));
+                            }
+                        })
+                        .item()
+                        .build();
+                if (type == SuSyStoneBlockType.STONE && strata.isNatural()) {
+                    entry.tag(BlockTags.STONE_ORE_REPLACEABLES, BlockTags.BASE_STONE_OVERWORLD,
+                                    BlockTags.DRIPSTONE_REPLACEABLE, BlockTags.MOSS_REPLACEABLE)
+                            .blockstate(GTModels.randomRotatedModel(Supersymmetry.id(ModelProvider.BLOCK_FOLDER + "/stones/" +
+                                    strata.getSerializedName() + "/" + type.id)));
+                } else {
+                    entry.blockstate((ctx, prov) -> prov.simpleBlock(ctx.getEntry(),
+                            prov.models().singleTexture(ctx.getName(),
+                                    prov.mcLoc(ModelProvider.BLOCK_FOLDER + "/cube_all"), "all",
+                                    prov.modLoc(ModelProvider.BLOCK_FOLDER + "/stones/" + strata.getSerializedName() +
+                                            "/" + type.id))));
+                }
+                builder.put(type, strata, entry.register());
+            }
+        }
+        STONE_BLOCKS = builder.build();
+
+        GABBRO = STONE_BLOCKS.get(SuSyStoneBlockType.STONE, SuSyStoneTypes.GABBRO);
+        GNEISS = STONE_BLOCKS.get(SuSyStoneBlockType.STONE, SuSyStoneTypes.GNEISS);
+        LIMESTONE = STONE_BLOCKS.get(SuSyStoneBlockType.STONE, SuSyStoneTypes.LIMESTONE);
+        PHYLLITE = STONE_BLOCKS.get(SuSyStoneBlockType.STONE, SuSyStoneTypes.PHYLLITE);
+        QUARTZITE = STONE_BLOCKS.get(SuSyStoneBlockType.STONE, SuSyStoneTypes.QUARTZITE);
+        SHALE = STONE_BLOCKS.get(SuSyStoneBlockType.STONE, SuSyStoneTypes.SHALE);
+        SLATE = STONE_BLOCKS.get(SuSyStoneBlockType.STONE, SuSyStoneTypes.SLATE);
+        SOAPSTONE = STONE_BLOCKS.get(SuSyStoneBlockType.STONE, SuSyStoneTypes.SOAPSTONE);
+        KIMBERLITE = STONE_BLOCKS.get(SuSyStoneBlockType.STONE, SuSyStoneTypes.KIMBERLITE);
+    }
+
     private static void registerCoolingCoilBlocks() {
         for (BlockCoolingCoil.CoolingCoilType coilType : BlockCoolingCoil.CoolingCoilType.values()) {
             BlockEntry<BlockCoolingCoil> blockEntry = REGISTRATE
@@ -179,31 +244,6 @@ public class SuSyBlocks {
 //                .onRegister(compassNodeExist(GTCompassSections.BLOCKS, "sintering_brick_block"))
                 .build()
                 .register();
-    }
-
-    private static void registerSuSyStoneVariantBlocks() {
-        for (SuSyStoneVariantBlock.StoneType stoneType : SuSyStoneVariantBlock.StoneType.values()) {
-            EnumMap<SuSyStoneVariantBlock.StoneShape, BlockEntry<SuSyStoneVariantBlock>> shapeMap = new EnumMap<>(SuSyStoneVariantBlock.StoneShape.class);
-
-            for (SuSyStoneVariantBlock.StoneShape shape : SuSyStoneVariantBlock.StoneShape.values()) {
-                BlockEntry<SuSyStoneVariantBlock> blockEntry = REGISTRATE
-                        .block("%s_%s".formatted(stoneType.getName(), shape.variantName), p -> new SuSyStoneVariantBlock(p, stoneType, shape))
-                        .initialProperties(() -> Blocks.STONE)
-                        .properties(p -> p
-                                .strength(shape.hardness, shape.resistance)
-                        )
-                        .addLayer(() -> RenderType::cutoutMipped)
-                        .blockstate(NonNullBiConsumer.noop())
-                        .tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                        .item(RendererBlockItem::new)
-                        .model(NonNullBiConsumer.noop())
-                        .build()
-                        .register();
-
-                shapeMap.put(shape, blockEntry);
-            }
-            SUSY_STONE_BLOCKS.put(stoneType, shapeMap);
-        }
     }
 
     private static void registerDecorativeStructuralBlocks() {
