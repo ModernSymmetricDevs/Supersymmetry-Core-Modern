@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "susy:item/material_sets/dull/flotated",
+    "layer1": "susy:item/material_sets/dull/flotated_overlay"
+  }
+}
