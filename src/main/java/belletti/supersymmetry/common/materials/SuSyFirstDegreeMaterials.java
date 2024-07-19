@@ -1,4 +1,4 @@
-package belletti.supersymmetry.common.data.materials;
+package belletti.supersymmetry.common.materials;
 
 import belletti.supersymmetry.Supersymmetry;
 import com.gregtechceu.gtceu.api.GTValues;
@@ -6,7 +6,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty;
 
-import static belletti.supersymmetry.common.data.materials.SuSyMaterials.*;
+import static belletti.supersymmetry.common.materials.SuSyMaterials.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.DECOMPOSITION_BY_ELECTROLYZING;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.NO_SMASHING;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.*;

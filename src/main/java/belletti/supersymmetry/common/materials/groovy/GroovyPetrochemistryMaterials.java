@@ -1,10 +1,10 @@
-package belletti.supersymmetry.common.data.materials.groovy;
+package belletti.supersymmetry.common.materials.groovy;
 
 import belletti.supersymmetry.Supersymmetry;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 
-import static belletti.supersymmetry.common.data.materials.groovy.GroovySuSyMaterials.*;
+import static belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.FLAMMABLE;
 
 public class GroovyPetrochemistryMaterials {

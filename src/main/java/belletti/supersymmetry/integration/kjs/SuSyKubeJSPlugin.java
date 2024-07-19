@@ -5,8 +5,8 @@ import belletti.supersymmetry.common.data.SuSyBlocks;
 import belletti.supersymmetry.common.data.SuSyItems;
 import belletti.supersymmetry.common.data.SuSyMachines;
 import belletti.supersymmetry.common.data.SuSyRecipeTypes;
-import belletti.supersymmetry.common.data.materials.SuSyElementMaterials;
-import belletti.supersymmetry.common.data.materials.SuSyMaterials;
+import belletti.supersymmetry.common.materials.SuSyElementMaterials;
+import belletti.supersymmetry.common.materials.SuSyMaterials;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.script.BindingsEvent;
 

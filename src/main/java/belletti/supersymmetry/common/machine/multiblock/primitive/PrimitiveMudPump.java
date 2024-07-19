@@ -20,7 +20,7 @@ import net.minecraft.world.level.biome.Biome.Precipitation;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
-import static belletti.supersymmetry.common.data.materials.SuSyMaterials.Mud;
+import static belletti.supersymmetry.common.materials.SuSyMaterials.Mud;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault

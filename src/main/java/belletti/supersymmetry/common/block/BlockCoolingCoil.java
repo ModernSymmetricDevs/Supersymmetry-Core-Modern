@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Map;
 
-import static belletti.supersymmetry.common.data.materials.SuSyMaterials.*;
+import static belletti.supersymmetry.common.materials.SuSyMaterials.*;
 
 public class BlockCoolingCoil extends ActiveBlock {
 

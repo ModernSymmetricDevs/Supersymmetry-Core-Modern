@@ -1,4 +1,4 @@
-package belletti.supersymmetry.common.data.materials.groovy;
+package belletti.supersymmetry.common.materials.groovy;
 
 import belletti.supersymmetry.Supersymmetry;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;

@@ -2,7 +2,7 @@ package belletti.supersymmetry.common.data;
 
 import belletti.supersymmetry.Supersymmetry;
 import belletti.supersymmetry.common.block.BlockDeposit;
-import belletti.supersymmetry.common.data.materials.SuSyMaterials;
+import belletti.supersymmetry.common.materials.SuSyMaterials;
 import belletti.supersymmetry.data.recipe.LatexCollectorRecipes;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
@@ -13,7 +13,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 
 import static belletti.supersymmetry.common.data.SuSyRecipeTypes.*;
-import static belletti.supersymmetry.common.data.materials.SuSyMaterials.Latex;
+import static belletti.supersymmetry.common.materials.SuSyMaterials.Latex;
 
 public class SuSyRecipes {
     public static void init(Consumer<FinishedRecipe> provider) {

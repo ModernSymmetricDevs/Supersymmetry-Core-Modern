@@ -2,7 +2,7 @@ package belletti.supersymmetry;
 
 import belletti.supersymmetry.api.registries.SuSyRegistries;
 import belletti.supersymmetry.common.data.*;
-import belletti.supersymmetry.common.data.materials.SuSyMaterials;
+import belletti.supersymmetry.common.materials.SuSyMaterials;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;

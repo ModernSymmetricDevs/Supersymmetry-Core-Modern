@@ -1,13 +1,13 @@
-package belletti.supersymmetry.common.data.materials.groovy;
+package belletti.supersymmetry.common.materials.groovy;
 
 import belletti.supersymmetry.Supersymmetry;
-import belletti.supersymmetry.common.data.materials.properties.SuSyFluidStorageKeys;
+import belletti.supersymmetry.common.materials.properties.SuSyFluidStorageKeys;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 
-import static belletti.supersymmetry.common.data.materials.SuSyMaterialFlags.*;
+import static belletti.supersymmetry.common.materials.SuSyMaterialFlags.*;
 
-import static belletti.supersymmetry.common.data.materials.groovy.GroovySuSyMaterials.*;
+import static belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.LIGNITE;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.SHINY;

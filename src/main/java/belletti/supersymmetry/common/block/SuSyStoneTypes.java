@@ -1,7 +1,7 @@
 package belletti.supersymmetry.common.block;
 
 import belletti.supersymmetry.common.data.SuSyBlocks;
-import belletti.supersymmetry.common.data.materials.SuSyMaterials;
+import belletti.supersymmetry.common.materials.SuSyMaterials;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;

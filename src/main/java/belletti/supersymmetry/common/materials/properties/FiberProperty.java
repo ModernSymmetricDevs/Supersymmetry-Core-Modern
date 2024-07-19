@@ -1,6 +1,6 @@
-package belletti.supersymmetry.common.data.materials.properties;
+package belletti.supersymmetry.common.materials.properties;
 
-import belletti.supersymmetry.common.data.materials.SuSyMaterialFlags;
+import belletti.supersymmetry.common.materials.SuSyMaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.IngotProperty;

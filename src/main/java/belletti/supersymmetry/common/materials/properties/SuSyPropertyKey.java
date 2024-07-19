@@ -1,4 +1,4 @@
-package belletti.supersymmetry.common.data.materials.properties;
+package belletti.supersymmetry.common.materials.properties;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.MaterialProperties;

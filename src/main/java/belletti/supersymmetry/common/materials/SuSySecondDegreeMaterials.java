@@ -1,15 +1,15 @@
-package belletti.supersymmetry.common.data.materials;
+package belletti.supersymmetry.common.materials;
 
 import belletti.supersymmetry.Supersymmetry;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 
-import static belletti.supersymmetry.common.data.materials.SuSyFirstDegreeMaterials.*;
+import static belletti.supersymmetry.common.materials.SuSyFirstDegreeMaterials.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.DISABLE_DECOMPOSITION;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.NO_SMASHING;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.ROUGH;
 
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static belletti.supersymmetry.common.data.materials.SuSyMaterials.*;
+import static belletti.supersymmetry.common.materials.SuSyMaterials.*;
 
 public class SuSySecondDegreeMaterials {
     public static void init() {

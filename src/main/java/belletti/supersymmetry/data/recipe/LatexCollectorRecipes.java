@@ -10,8 +10,8 @@ import net.minecraft.world.level.block.Blocks;
 import java.util.function.Consumer;
 
 import static belletti.supersymmetry.common.data.SuSyRecipeTypes.LATEX_COLLECTOR_RECIPES;
-import static belletti.supersymmetry.common.data.materials.SuSyMaterials.Latex;
-import static belletti.supersymmetry.common.data.materials.groovy.GroovySuSyMaterials.Resin;
+import static belletti.supersymmetry.common.materials.SuSyMaterials.Latex;
+import static belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials.Resin;
 import static com.gregtechceu.gtceu.api.GTValues.LV;
 import static com.gregtechceu.gtceu.api.GTValues.VA;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.DistilledWater;

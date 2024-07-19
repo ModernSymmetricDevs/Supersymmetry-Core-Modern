@@ -1,8 +1,8 @@
-package belletti.supersymmetry.common.data.materials;
+package belletti.supersymmetry.common.materials;
 
 import belletti.supersymmetry.Supersymmetry;
-import belletti.supersymmetry.common.data.materials.groovy.GroovySuSyFirstDegreeMaterials;
-import belletti.supersymmetry.common.data.materials.groovy.GroovySuSyMaterials;
+import belletti.supersymmetry.common.materials.groovy.GroovySuSyFirstDegreeMaterials;
+import belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;

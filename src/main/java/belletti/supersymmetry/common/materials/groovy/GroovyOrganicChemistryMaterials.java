@@ -1,14 +1,14 @@
-package belletti.supersymmetry.common.data.materials.groovy;
+package belletti.supersymmetry.common.materials.groovy;
 
 import belletti.supersymmetry.Supersymmetry;
-import belletti.supersymmetry.common.data.materials.properties.FiberProperty;
-import belletti.supersymmetry.common.data.materials.properties.SuSyPropertyKey;
+import belletti.supersymmetry.common.materials.properties.FiberProperty;
+import belletti.supersymmetry.common.materials.properties.SuSyPropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.attribute.FluidAttributes;
 
-import static belletti.supersymmetry.common.data.materials.SuSyMaterialFlags.GENERATE_CATALYST_BED;
-import static belletti.supersymmetry.common.data.materials.groovy.GroovySuSyMaterials.*;
+import static belletti.supersymmetry.common.materials.SuSyMaterialFlags.GENERATE_CATALYST_BED;
+import static belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;

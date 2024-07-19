@@ -1,4 +1,4 @@
-package belletti.supersymmetry.common.data.materials.info;
+package belletti.supersymmetry.common.materials.info;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType;
 

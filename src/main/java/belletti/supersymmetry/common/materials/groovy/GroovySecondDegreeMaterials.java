@@ -1,16 +1,16 @@
-package belletti.supersymmetry.common.data.materials.groovy;
+package belletti.supersymmetry.common.materials.groovy;
 
 import belletti.supersymmetry.Supersymmetry;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.attribute.FluidAttributes;
 
-import static belletti.supersymmetry.common.data.materials.SuSyMaterialFlags.GENERATE_CATALYST_BED;
-import static belletti.supersymmetry.common.data.materials.groovy.GroovySuSyMaterials.*;
-import static belletti.supersymmetry.common.data.materials.groovy.GroovySuSyMaterials.ActivatedCarbon;
-import static belletti.supersymmetry.common.data.materials.groovy.GroovySuSyMaterials.PotassiumCarbonate;
-import static belletti.supersymmetry.common.data.materials.groovy.GroovySuSyMaterials.PotassiumHydroxide;
-import static belletti.supersymmetry.common.data.materials.groovy.GroovySuSyMaterials.PotassiumIodide;
+import static belletti.supersymmetry.common.materials.SuSyMaterialFlags.GENERATE_CATALYST_BED;
+import static belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials.*;
+import static belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials.ActivatedCarbon;
+import static belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials.PotassiumCarbonate;
+import static belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials.PotassiumHydroxide;
+import static belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials.PotassiumIodide;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 
 public class GroovySecondDegreeMaterials {

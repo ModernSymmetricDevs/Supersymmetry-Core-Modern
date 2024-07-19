@@ -1,6 +1,6 @@
 package belletti.supersymmetry.common.machine.multiblock.electrical;
 
-import belletti.supersymmetry.common.data.materials.SuSyMaterials;
+import belletti.supersymmetry.common.materials.SuSyMaterials;
 import com.gregtechceu.gtceu.api.capability.recipe.FluidRecipeCapability;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
