@@ -3,6 +3,8 @@ package belletti.supersymmetry.common.data;
 import belletti.supersymmetry.Supersymmetry;
 import belletti.supersymmetry.common.block.BlockDeposit;
 import belletti.supersymmetry.common.materials.SuSyMaterials;
+import belletti.supersymmetry.common.recipes.StoneRecipes;
+import belletti.supersymmetry.common.recipes.SuSyMaterialRecipeHandler;
 import belletti.supersymmetry.data.recipe.LatexCollectorRecipes;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
@@ -17,6 +19,9 @@ import static belletti.supersymmetry.common.materials.SuSyMaterials.Latex;
 
 public class SuSyRecipes {
     public static void init(Consumer<FinishedRecipe> provider) {
+        StoneRecipes.init(provider);
+        SuSyMaterialRecipeHandler.init(provider);
+
         // @TODO: move to groovy / kubejs, this is just a ploaceholder for testing stuff out
         COAGULATION_RECIPES.recipeBuilder(Supersymmetry.id("dustlatex"))
                 .inputFluids(Latex.getFluid(1000))
