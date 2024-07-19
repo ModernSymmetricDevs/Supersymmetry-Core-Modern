@@ -1,125 +1,117 @@
 package belletti.supersymmetry.api.data.tag;
 
 import belletti.supersymmetry.Supersymmetry;
-import belletti.supersymmetry.common.block.SuSyStoneVariantBlock;
+import belletti.supersymmetry.common.block.SuSyStoneTypes;
 import belletti.supersymmetry.common.data.SuSyBlocks;
 import belletti.supersymmetry.common.data.materials.SuSyMaterialFlags;
 import belletti.supersymmetry.common.data.materials.SuSyMaterials;
 import belletti.supersymmetry.common.data.materials.info.SuSyMaterialIconType;
 import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
-import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.common.Tags;
-
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasOreProperty;
 
 public class SuSyTagPrefix {
     public static TagPrefix oreGabbro = TagPrefix.oreTagPrefix("oreGabbro", BlockTags.MINEABLE_WITH_PICKAXE)
             .langValue("Gabbro %s Ore")
             .registerOre(
-                    Blocks.STONE::defaultBlockState,
+                    () -> SuSyBlocks.GABBRO.orElse(Blocks.STONE).defaultBlockState(),
                     () -> SuSyMaterials.Gabbro,
                     BlockBehaviour.Properties.of()
-                            .mapColor(DyeColor.byId(0x5C5C5C))
+                            .mapColor(SuSyStoneTypes.GABBRO.mapColor)
                             .requiresCorrectToolForDrops()
                             .strength(2.0F, 10.0F),
-                    Supersymmetry.id("block/susy_stones/gabbro_smooth"));
+                    Supersymmetry.id("block/gabbro"));
 
     public static TagPrefix oreGneiss = TagPrefix.oreTagPrefix("oreGneiss", BlockTags.MINEABLE_WITH_PICKAXE)
             .langValue("Gneiss %s Ore")
             .registerOre(
-                    Blocks.STONE::defaultBlockState,
+                    () -> SuSyBlocks.GNEISS.orElse(Blocks.STONE).defaultBlockState(),
                     () -> SuSyMaterials.Gneiss,
                     BlockBehaviour.Properties.of()
-                            .mapColor(DyeColor.byId(0x643631))
+                            .mapColor(SuSyStoneTypes.GNEISS.mapColor)
                             .requiresCorrectToolForDrops()
                             .strength(2.0F, 10.0F),
-                    Supersymmetry.id("block/susy_stones/gneiss_smooth"));
+                    Supersymmetry.id("block/gneiss"));
 
     public static TagPrefix oreLimestone = TagPrefix.oreTagPrefix("oreLimestone", BlockTags.MINEABLE_WITH_PICKAXE)
             .langValue("Limestone %s Ore")
             .registerOre(
-                    Blocks.STONE::defaultBlockState,
+                    () -> SuSyBlocks.LIMESTONE.orElse(Blocks.STONE).defaultBlockState(),
                     () -> SuSyMaterials.Limestone,
                     BlockBehaviour.Properties.of()
-                            .mapColor(DyeColor.byId(0xa9a9a9))
+                            .mapColor(SuSyStoneTypes.LIMESTONE.mapColor)
                             .requiresCorrectToolForDrops()
                             .strength(2.0F, 10.0F),
-                    Supersymmetry.id("block/susy_stones/limestone_smooth"));
+                    Supersymmetry.id("block/limestone"));
 
     public static TagPrefix orePhyllite = TagPrefix.oreTagPrefix("orePhyllite", BlockTags.MINEABLE_WITH_PICKAXE)
             .langValue("Phyllite %s Ore")
             .registerOre(
-                    Blocks.STONE::defaultBlockState,
+                    () -> SuSyBlocks.PHYLLITE.orElse(Blocks.STONE).defaultBlockState(),
                     () -> SuSyMaterials.Phyllite,
                     BlockBehaviour.Properties.of()
-                            .mapColor(DyeColor.byId(0x716f71))
+                            .mapColor(SuSyStoneTypes.PHYLLITE.mapColor)
                             .requiresCorrectToolForDrops()
                             .strength(2.0F, 10.0F),
-                    Supersymmetry.id("block/susy_stones/phyllite_smooth"));
+                    Supersymmetry.id("block/phyllite"));
 
     public static TagPrefix oreQuartzite = TagPrefix.oreTagPrefix("oreQuartzite", BlockTags.MINEABLE_WITH_PICKAXE)
             .langValue("Quartzite %s Ore")
             .registerOre(
-                    Blocks.STONE::defaultBlockState,
-                    null,
+                    () -> SuSyBlocks.QUARTZITE.orElse(Blocks.STONE).defaultBlockState(),
+                    () -> GTMaterials.Quartzite,
                     BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.QUARTZ)
+                            .mapColor(SuSyStoneTypes.QUARTZITE.mapColor)
                             .requiresCorrectToolForDrops()
                             .strength(2.0F, 10.0F),
-                    Supersymmetry.id("block/susy_stones/quartzite_smooth"));
+                    Supersymmetry.id("block/quartzite"));
 
     public static TagPrefix oreShale = TagPrefix.oreTagPrefix("oreShale", BlockTags.MINEABLE_WITH_PICKAXE)
             .langValue("Shale %s Ore")
             .registerOre(
-                    Blocks.STONE::defaultBlockState,
+                    () -> SuSyBlocks.SHALE.orElse(Blocks.STONE).defaultBlockState(),
                     () -> SuSyMaterials.Shale,
                     BlockBehaviour.Properties.of()
-                            .mapColor(DyeColor.byId(0x3f2e2f))
+                            .mapColor(SuSyStoneTypes.SHALE.mapColor)
                             .requiresCorrectToolForDrops()
                             .strength(2.0F, 10.0F),
-                    Supersymmetry.id("block/susy_stones/shale_smooth"));
+                    Supersymmetry.id("block/shale"));
 
     public static TagPrefix oreSlate = TagPrefix.oreTagPrefix("oreSlate", BlockTags.MINEABLE_WITH_PICKAXE)
             .langValue("Slate %s Ore")
             .registerOre(
-                    Blocks.STONE::defaultBlockState,
+                    () -> SuSyBlocks.SLATE.orElse(Blocks.STONE).defaultBlockState(),
                     () -> SuSyMaterials.Slate,
                     BlockBehaviour.Properties.of()
-                            .mapColor(DyeColor.byId(0x756869))
+                            .mapColor(SuSyStoneTypes.SLATE.mapColor)
                             .requiresCorrectToolForDrops()
                             .strength(2.0F, 10.0F),
-                    Supersymmetry.id("block/susy_stones/slate_smooth"));
+                    Supersymmetry.id("block/slate"));
 
     public static TagPrefix oreSoapstone = TagPrefix.oreTagPrefix("oreSoapstone", BlockTags.MINEABLE_WITH_PICKAXE)
             .langValue("Soapstone %s Ore")
             .registerOre(
-                    Blocks.STONE::defaultBlockState,
-                    null,
+                    () -> SuSyBlocks.SOAPSTONE.orElse(Blocks.STONE).defaultBlockState(),
+                    () -> GTMaterials.Soapstone,
                     BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.TERRACOTTA_GRAY)
+                            .mapColor(SuSyStoneTypes.SOAPSTONE.mapColor)
                             .requiresCorrectToolForDrops()
                             .strength(2.0F, 10.0F),
-                    Supersymmetry.id("block/susy_stones/soapstone_smooth"));
+                    Supersymmetry.id("block/soapstone"));
 
     public static TagPrefix oreKimberlite = TagPrefix.oreTagPrefix("oreKimberlite", BlockTags.MINEABLE_WITH_PICKAXE)
             .langValue("Kimberlite %s Ore")
             .registerOre(
-                    Blocks.STONE::defaultBlockState,
+                    () -> SuSyBlocks.KIMBERLITE.orElse(Blocks.STONE).defaultBlockState(),
                     () -> SuSyMaterials.Kimberlite,
                     BlockBehaviour.Properties.of()
-                            .mapColor(DyeColor.byId(0x201313))
+                            .mapColor(SuSyStoneTypes.KIMBERLITE.mapColor)
                             .requiresCorrectToolForDrops()
                             .strength(2.0F, 10.0F),
-                    Supersymmetry.id("block/susy_stones/kimberlite_smooth"));
+                    Supersymmetry.id("block/kimberlite"));
 
     public static final TagPrefix catalystBed = new TagPrefix("catalystBed")
             .idPattern("%s_catalyst_bed")

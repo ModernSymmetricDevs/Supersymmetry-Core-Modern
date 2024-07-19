@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "susy:block/shale"
+      },
+      {
+        "model": "susy:block/shale",
+        "y": 180
+      },
+      {
+        "model": "susy:block/shale_mirrored"
+      },
+      {
+        "model": "susy:block/shale_mirrored",
+        "y": 180
+      }
+    ]
+  }
+}
