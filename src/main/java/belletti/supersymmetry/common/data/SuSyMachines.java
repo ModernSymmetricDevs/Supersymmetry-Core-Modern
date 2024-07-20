@@ -1335,6 +1335,23 @@ public class SuSyMachines {
                     Supersymmetry.id("block/multiblock/dumper"))
             .register();
 
+    public static final MultiblockMachineDefinition FlareStack = REGISTRATE.multiblock("flarestack", FlareStack::new)
+            .rotationState(RotationState.NON_Y_AXIS)
+            .recipeType(SuSyRecipeTypes.FLARESTACK)
+            .appearanceBlock(GTBlocks.FIREBOX_STEEL)
+            .pattern(definition -> FactoryBlockPattern.start(RIGHT, BACK, UP)
+                    .aisle("S")
+                    .aisle("P").setRepeatable(3,7)
+                    .aisle("F")
+                    .where('S', Predicates.controller(Predicates.blocks(definition.get())))
+                    .where('P', SuSyPredicates.flareStackPredicate()
+                            .or(Predicates.ability(PartAbility.IMPORT_FLUIDS).setExactLimit(1)))
+                    .where('F', Predicates.ability(PartAbility.MUFFLER).setExactLimit(1))
+                    .build())
+            .workableCasingRenderer(
+                    GTCEu.id("block/casings/firebox/machine_casing_firebox_steel"),
+                    Supersymmetry.id("block/multiblock/flare_stack"))
+            .register();
 
     // Helpers //
 

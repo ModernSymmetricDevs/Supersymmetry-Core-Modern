@@ -387,6 +387,8 @@ public class SuSyRecipeTypes {
 
     public static final GTRecipeType DUMPER = register("dumper", MULTIBLOCK);
 
+    public static final GTRecipeType FLARESTACK = register("flarestack", MULTIBLOCK);
+
     public static GTRecipeType register(String name, String group, RecipeType<?>... proxyRecipes) {
         var recipeType = new GTRecipeType(Supersymmetry.id(name), group, proxyRecipes);
         GTRegistries.register(BuiltInRegistries.RECIPE_TYPE, recipeType.registryName, recipeType);

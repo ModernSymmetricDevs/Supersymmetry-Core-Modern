@@ -7,6 +7,7 @@ import belletti.supersymmetry.common.data.SuSyBlocks;
 import com.gregtechceu.gtceu.api.pattern.TraceabilityPredicate;
 import com.gregtechceu.gtceu.api.pattern.error.PatternStringError;
 import com.gregtechceu.gtceu.api.pattern.util.RelativeDirection;
+import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.lowdragmc.lowdraglib.utils.BlockInfo;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
@@ -70,5 +71,16 @@ public class SuSyPredicates {
         }, () -> DEPOSIT_BLOCKS.values().stream()
                 .map(coil -> BlockInfo.fromBlockState(coil.get().defaultBlockState()))
                 .toArray(BlockInfo[]::new));
+    }
+
+    public static TraceabilityPredicate flareStackPredicate() {
+        return new TraceabilityPredicate(blockWorldState -> {
+            var blockState = blockWorldState.getBlockState();
+            if(blockState.is(GTBlocks.FIREBOX_STEEL.get())) {
+                blockWorldState.getMatchContext().increment("height", 1);
+                return true;
+            }
+            return false;
+        }, () -> new BlockInfo[]{BlockInfo.fromBlock(GTBlocks.FIREBOX_STEEL.get())});
     }
 }
