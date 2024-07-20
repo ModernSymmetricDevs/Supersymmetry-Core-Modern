@@ -5,6 +5,7 @@ import belletti.supersymmetry.common.block.*;
 import belletti.supersymmetry.common.machine.multiblock.electrical.*;
 import belletti.supersymmetry.common.machine.multiblock.primitive.CoagulationTank;
 import belletti.supersymmetry.common.machine.multiblock.primitive.PrimitiveMudPump;
+import belletti.supersymmetry.common.machine.multiblock.electrical.Dumper;
 import belletti.supersymmetry.common.machine.singleblock.electrical.BathCondenser;
 import belletti.supersymmetry.common.pattern.SuSyPredicates;
 import com.gregtechceu.gtceu.GTCEu;
@@ -13,14 +14,11 @@ import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.machine.*;
-import com.gregtechceu.gtceu.api.machine.feature.multiblock.IRotorHolderMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.machine.steam.SimpleSteamMachine;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
-import com.gregtechceu.gtceu.api.pattern.TraceabilityPredicate;
-import com.gregtechceu.gtceu.api.pattern.predicates.SimplePredicate;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
@@ -28,7 +26,6 @@ import com.gregtechceu.gtceu.client.renderer.machine.WorkableSteamMachineRendere
 import com.gregtechceu.gtceu.common.data.*;
 import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.lowdragmc.lowdraglib.side.fluid.FluidHelper;
-import com.lowdragmc.lowdraglib.utils.BlockInfo;
 import it.unimi.dsi.fastutil.Pair;
 import it.unimi.dsi.fastutil.ints.Int2LongFunction;
 import net.minecraft.ChatFormatting;
@@ -37,7 +34,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Locale;
 import java.util.function.BiFunction;
@@ -49,7 +45,6 @@ import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.air;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.autoAbilities;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
-import static com.gregtechceu.gtceu.common.data.GTBlocks.COMPUTER_CASING;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.utils.FormattingUtil.toEnglishName;
 
@@ -1319,6 +1314,27 @@ public class SuSyMachines {
                     GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
                     Supersymmetry.id("block/multiblock/distillation_towers/vacuum_distillation_tower"))
             .register();
+
+    public static final MultiblockMachineDefinition Dumper = REGISTRATE.multiblock("dumper", Dumper::new)
+            .rotationState(RotationState.NON_Y_AXIS)
+            .recipeType(SuSyRecipeTypes.DUMPER)
+            .appearanceBlock(GTBlocks.CASING_STEEL_SOLID)
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("A  A", "BBBB", "A  A")
+                    .aisle("BBBB", "C##A", "BBBB")
+                    .aisle("A  A", "BSBB", "A  A")
+                    .where('S', Predicates.controller(Predicates.blocks(definition.get())))
+                    .where('A', Predicates.frames(GTMaterials.Steel))
+                    .where('B', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get()))
+                    .where('C', Predicates.ability(PartAbility.IMPORT_FLUIDS).setExactLimit(1))
+                    .where(' ', Predicates.any())
+                    .where('#', Predicates.air())
+                    .build())
+            .workableCasingRenderer(
+                    GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
+                    Supersymmetry.id("block/multiblock/dumper"))
+            .register();
+
 
     // Helpers //
 

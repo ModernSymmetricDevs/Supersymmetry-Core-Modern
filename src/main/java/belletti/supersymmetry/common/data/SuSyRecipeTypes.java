@@ -4,17 +4,13 @@ import belletti.supersymmetry.Supersymmetry;
 import belletti.supersymmetry.api.SuSyGuiTextures;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
-import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeSerializer;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTSoundEntries;
 import com.lowdragmc.lowdraglib.gui.texture.ProgressTexture;
-import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.level.block.SoundType;
 
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 
@@ -388,6 +384,8 @@ public class SuSyRecipeTypes {
             .setSound(GTSoundEntries.TURBINE);
 
     public static final GTRecipeType OCEAN_PUMPER = register("ocean_pump", MULTIBLOCK);
+
+    public static final GTRecipeType DUMPER = register("dumper", MULTIBLOCK);
 
     public static GTRecipeType register(String name, String group, RecipeType<?>... proxyRecipes) {
         var recipeType = new GTRecipeType(Supersymmetry.id(name), group, proxyRecipes);
