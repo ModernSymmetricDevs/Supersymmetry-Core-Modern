@@ -276,6 +276,8 @@ public class SuSyMachines {
             GTValues.tiersBetween(LV, OpV)
     );
 
+    public final static MachineDefinition BRASS_DRUM = registerDrum(GTMaterials.Brass, 16000, "Brass Drum");
+
     public static final MultiblockMachineDefinition COAGULATION_TANK = REGISTRATE.multiblock("coagulation_tank", CoagulationTank::new)
             .rotationState(RotationState.NON_Y_AXIS)
             .recipeType(SuSyRecipeTypes.COAGULATION_RECIPES)
