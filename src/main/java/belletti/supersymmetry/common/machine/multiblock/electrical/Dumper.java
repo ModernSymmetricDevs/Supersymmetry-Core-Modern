@@ -43,7 +43,7 @@ public class Dumper extends WorkableElectricMultiblockMachine {
     }
 
     private void serverTickEvent() {
-        if (getOffsetTimer() % 20 == 0) return;
+        if (getOffsetTimer() % 20 != 0) return;
         if (inputFluidTank == null || inputFluidTank.getContents().isEmpty()) {
             this.isActive = false;
             return;
@@ -61,7 +61,9 @@ public class Dumper extends WorkableElectricMultiblockMachine {
         if (fluidMaterial == null) return false;
 
         Fluid liquidFluid = fluidMaterial.getFluid(FluidStorageKeys.LIQUID);
-        return liquidFluid != null && liquidFluid == fluid && fluidMaterial.hasFlag(MaterialFlags.FLAMMABLE);
+        boolean isLiquidFluid = liquidFluid != null && liquidFluid == fluid;
+
+        return isLiquidFluid && !fluidMaterial.hasFlag(MaterialFlags.FLAMMABLE);
     }
 
     // @TODO item tooltip gregtech.machine.dumper.rate
