@@ -70,9 +70,9 @@ public class FlareStack extends WorkableElectricMultiblockMachine implements IMu
 
         Fluid liquidFluid = fluidMaterial.getFluid(FluidStorageKeys.LIQUID);
         Fluid gasFluid = fluidMaterial.getFluid(FluidStorageKeys.GAS);
-        boolean isLiquidOrGas = (liquidFluid != null && liquidFluid == fluid) || (gasFluid != null && gasFluid == fluid);
+        boolean isLiquidFluidOrGas = (liquidFluid != null && liquidFluid == fluid) || (gasFluid != null && gasFluid == fluid);
 
-        return isLiquidOrGas && fluidMaterial.hasFlag(MaterialFlags.FLAMMABLE);
+        return isLiquidFluidOrGas && fluidMaterial.hasFlag(MaterialFlags.FLAMMABLE);
     }
 
     private int getActualVoidingRate() {
