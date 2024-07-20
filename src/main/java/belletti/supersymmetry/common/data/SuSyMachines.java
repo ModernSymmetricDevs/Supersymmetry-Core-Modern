@@ -1353,6 +1353,24 @@ public class SuSyMachines {
                     Supersymmetry.id("block/multiblock/flare_stack"))
             .register();
 
+    public static final MultiblockMachineDefinition SmokeStack = REGISTRATE.multiblock("smokestack", SmokeStack::new)
+            .rotationState(RotationState.NON_Y_AXIS)
+            .recipeType(SuSyRecipeTypes.FLARESTACK)
+            .appearanceBlock(GTBlocks.FIREBOX_STEEL)
+            .pattern(definition -> FactoryBlockPattern.start(RIGHT, BACK, UP)
+                    .aisle("S")
+                    .aisle("P").setRepeatable(3,7)
+                    .aisle("F")
+                    .where('S', Predicates.controller(Predicates.blocks(definition.get())))
+                    .where('P', SuSyPredicates.smokeStackPredicate()
+                            .or(Predicates.ability(PartAbility.IMPORT_FLUIDS).setExactLimit(1)))
+                    .where('F', Predicates.ability(PartAbility.MUFFLER).setExactLimit(1))
+                    .build())
+            .workableCasingRenderer(
+                    GTCEu.id("block/casings/pipe/machine_casing_pipe_steel"),
+                    Supersymmetry.id("block/multiblock/smoke_stack"))
+            .register();
+
     // Helpers //
 
     public static MachineDefinition[] registerSimpleMachines(String name,

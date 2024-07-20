@@ -83,4 +83,15 @@ public class SuSyPredicates {
             return false;
         }, () -> new BlockInfo[]{BlockInfo.fromBlock(GTBlocks.FIREBOX_STEEL.get())});
     }
+
+    public static TraceabilityPredicate smokeStackPredicate() {
+        return new TraceabilityPredicate(blockWorldState -> {
+            var blockState = blockWorldState.getBlockState();
+            if(blockState.is(GTBlocks.CASING_STEEL_PIPE.get())) {
+                blockWorldState.getMatchContext().increment("height", 1);
+                return true;
+            }
+            return false;
+        }, () -> new BlockInfo[]{BlockInfo.fromBlock(GTBlocks.CASING_STEEL_PIPE.get())});
+    }
 }
