@@ -7,6 +7,7 @@ import com.gregtechceu.gtceu.api.gui.GuiTextures;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeSerializer;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
+import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.GTSoundEntries;
 import com.lowdragmc.lowdraglib.gui.texture.ProgressTexture;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -14,7 +15,6 @@ import net.minecraft.world.item.crafting.RecipeType;
 
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 
-// Originally SuSyRecipeMaps.java
 public class SuSyRecipeTypes {
     public static final GTRecipeType COOLING_RECIPES = register("magnetic_refrigerator", ELECTRIC)
             .setMaxIOSize(3, 3, 3, 0)
@@ -398,5 +398,31 @@ public class SuSyRecipeTypes {
     }
 
     public static void init() {
+        GTRecipeTypes.SIFTER_RECIPES.setMaxIOSize(2, 6, 1, 1);
+        GTRecipeTypes.SIFTER_RECIPES.setSlotOverlay(false, true, SuSyGuiTextures.SIFTER_FLUID_OVERLAY);
+        GTRecipeTypes.SIFTER_RECIPES.setSlotOverlay(true, true, SuSyGuiTextures.SIFTER_FLUID_OVERLAY);
+        GTRecipeTypes.SIFTER_RECIPES.setSlotOverlay(false, false, SuSyGuiTextures.SIFTER_ITEM_INPUT_OVERLAY);
+        GTRecipeTypes.SIFTER_RECIPES.setSlotOverlay(true, false, SuSyGuiTextures.SIFTER_ITEM_OUTPUT_OVERLAY);
+
+        GTRecipeTypes.ELECTROMAGNETIC_SEPARATOR_RECIPES.setMaxIOSize(1, 6, 1, 2);
+        GTRecipeTypes.ELECTROMAGNETIC_SEPARATOR_RECIPES.setSlotOverlay(false, false, SuSyGuiTextures.ELECTROMAGNETIC_SEPARATOR_ITEM_OVERLAY);
+        GTRecipeTypes.ELECTROMAGNETIC_SEPARATOR_RECIPES.setSlotOverlay(false, true, SuSyGuiTextures.ELECTROMAGNETIC_SEPARATOR_FLUID_OVERLAY);
+
+        GTRecipeTypes.CENTRIFUGE_RECIPES.setMaxIOSize(2, 6, 2, 6);
+        GTRecipeTypes.CENTRIFUGE_RECIPES.setSlotOverlay(false, true, false, GuiTextures.CENTRIFUGE_OVERLAY);
+
+        GTRecipeTypes.ARC_FURNACE_RECIPES.setMaxIOSize(4, 4, 1, 1);
+        GTRecipeTypes.ELECTROLYZER_RECIPES.setMaxIOSize(4, 6, 2, 6);
+        GTRecipeTypes.PYROLYSE_RECIPES.setMaxIOSize(2, 1, 1, 3);
+        GTRecipeTypes.LASER_ENGRAVER_RECIPES.setMaxIOSize(2, 6, 1, 1);
+        GTRecipeTypes.GAS_TURBINE_FUELS.setMaxIOSize(1, 1, 3, 1);
+        GTRecipeTypes.AUTOCLAVE_RECIPES.setMaxIOSize(2, 2, 2, 2);
+        GTRecipeTypes.CHEMICAL_BATH_RECIPES.setMaxIOSize(1, 6, 3, 3);
+        GTRecipeTypes.EXTRUDER_RECIPES.setMaxIOSize(2, 3, 1, 0);
+        GTRecipeTypes.CUTTER_RECIPES.setMaxIOSize(1, 4, 1, 0);
+        GTRecipeTypes.LARGE_CHEMICAL_RECIPES.setMaxIOSize(4, 3, 6, 4);
+
+        GTRecipeTypes.MIXER_RECIPES.onRecipeBuild((recipeBuilder, provider) ->
+                SuSyRecipeTypes.BLENDER_RECIPES.copyFrom(recipeBuilder).save(provider));
     }
 }
