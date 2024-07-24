@@ -6,6 +6,7 @@ import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.item.ComponentItem;
 import com.gregtechceu.gtceu.api.item.component.ElectricStats;
+import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import net.minecraft.world.item.Item;
 
 import static belletti.supersymmetry.api.registries.SuSyRegistries.REGISTRATE;
@@ -515,6 +516,7 @@ public class SuSyCustomItems {
                 .model(overrideModel(Supersymmetry.id("battery"), 8))
                 .onRegister(modelPredicate(Supersymmetry.id("battery"), ElectricStats::getStoredPredicate))
                 .onRegister(attach(ElectricStats.createRechargeableBattery(120000, GTValues.ULV)))
+                .tag(CustomTags.ULV_BATTERIES)
                 .register();
 
         REGISTRATE.item("cathode.lead", Item::new)
