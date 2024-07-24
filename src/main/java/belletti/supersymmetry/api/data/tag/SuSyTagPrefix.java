@@ -238,8 +238,8 @@ public class SuSyTagPrefix {
 
     public static final TagPrefix dustFlotated = new TagPrefix("dustFlotated")
             .idPattern("flotated_%s_dust")
-            .defaultTagPath("flotated_dust/%s")
-            .unformattedTagPath("flotated_dust")
+            .defaultTagPath("flotated_dusts/%s")
+            .unformattedTagPath("flotated_dusts")
             .langValue("Flotated %s Dust")
             .materialIconType(SuSyMaterialIconType.flotated)
             .unificationEnabled(true)
@@ -248,8 +248,8 @@ public class SuSyTagPrefix {
 
     public static final TagPrefix dustConcentrate = new TagPrefix("dustConcentrate")
             .idPattern("concentrate_%s_dust")
-            .defaultTagPath("concentrate_dust/%s")
-            .unformattedTagPath("concentrate_dust")
+            .defaultTagPath("concentrate_dusts/%s")
+            .unformattedTagPath("concentrate_dusts")
             .langValue("Concentrate %s Dust")
             .materialIconType(SuSyMaterialIconType.concentrate)
             .unificationEnabled(true)
@@ -259,8 +259,8 @@ public class SuSyTagPrefix {
     // Fiber
     public static final TagPrefix fiber = new TagPrefix("fiber")
             .idPattern("%s_fiber")
-            .defaultTagPath("fiber/%s")
-            .unformattedTagPath("fiber")
+            .defaultTagPath("fibers/%s")
+            .unformattedTagPath("fibers")
             .langValue("%s Fiber")
             .materialAmount(GTValues.M / 8)
             .materialIconType(SuSyMaterialIconType.fiber)
