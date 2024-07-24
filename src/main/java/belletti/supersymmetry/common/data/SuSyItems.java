@@ -1,5 +1,6 @@
 package belletti.supersymmetry.common.data;
 
+import belletti.supersymmetry.common.item.SuSyCustomItems;
 import com.gregtechceu.gtceu.api.item.ComponentItem;
 import com.gregtechceu.gtceu.common.data.GTCompassNodes;
 import com.gregtechceu.gtceu.common.data.GTCompassSections;
@@ -46,9 +47,7 @@ public class SuSyItems {
             })))
             .register();
 
-    // air vent cover
-
     public static void init() {
-
+        SuSyCustomItems.init();
     }
 }
