@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "susy:item/thick_film_resistor_wafer"
+  }
+}

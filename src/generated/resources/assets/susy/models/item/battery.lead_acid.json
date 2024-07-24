@@ -1,0 +1,56 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "susy:item/battery.lead_acid/0",
+      "predicate": {
+        "susy:battery": 0.0
+      }
+    },
+    {
+      "model": "susy:item/battery.lead_acid/1",
+      "predicate": {
+        "susy:battery": 0.01
+      }
+    },
+    {
+      "model": "susy:item/battery.lead_acid/2",
+      "predicate": {
+        "susy:battery": 0.02
+      }
+    },
+    {
+      "model": "susy:item/battery.lead_acid/3",
+      "predicate": {
+        "susy:battery": 0.03
+      }
+    },
+    {
+      "model": "susy:item/battery.lead_acid/4",
+      "predicate": {
+        "susy:battery": 0.04
+      }
+    },
+    {
+      "model": "susy:item/battery.lead_acid/5",
+      "predicate": {
+        "susy:battery": 0.05
+      }
+    },
+    {
+      "model": "susy:item/battery.lead_acid/6",
+      "predicate": {
+        "susy:battery": 0.06
+      }
+    },
+    {
+      "model": "susy:item/battery.lead_acid/7",
+      "predicate": {
+        "susy:battery": 0.07
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "susy:item/battery.lead_acid/1"
+  }
+}

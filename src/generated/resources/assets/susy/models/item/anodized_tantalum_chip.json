@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "susy:item/anodized_tantalum_chip"
+  }
+}

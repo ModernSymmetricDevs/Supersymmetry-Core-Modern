@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "susy:item/beads.ag_fifty_w_x_eight"
+  }
+}
