@@ -28,6 +28,9 @@ public class SuSyMaterials {
     public static Material Mud;
     public static Material Seawater;
 
+    // GTFO
+    public static Material SodiumSulfate;
+
     //Minerals
     public static Material Anorthite;
     public static Material Albite;
@@ -50,6 +53,8 @@ public class SuSyMaterials {
         SuSyOrganicChemistryMaterials.init();
         SuSyHighDegreeMaterials.init();
         SuSyUnknownCompositionMaterials.init();
+
+        GTFOMaterials.init();
 
         // @TODO: this should get moved to kubejs
         GroovySuSyMaterials.init();
