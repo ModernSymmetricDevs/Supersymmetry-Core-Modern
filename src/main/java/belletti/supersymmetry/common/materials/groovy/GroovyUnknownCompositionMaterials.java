@@ -1106,19 +1106,19 @@ public class GroovyUnknownCompositionMaterials {
         //FREE ID: 4221
 
         MidgradeGasoline = new Material.Builder(Supersymmetry.id("midgrade_gasoline"))
-                .liquid()
+                .liquid(new FluidBuilder())
                 .color(0xc49735)
                 .flags(FLAMMABLE)
                 .buildAndRegister();
 
         PremiumGasoline = new Material.Builder(Supersymmetry.id("premium_gasoline"))
-                .liquid()
+                .liquid(new FluidBuilder())
                 .color(0xdb8427)
                 .flags(FLAMMABLE)
                 .buildAndRegister();
 
         SupremeGasoline = new Material.Builder(Supersymmetry.id("supreme_gasoline"))
-                .liquid()
+                .liquid(new FluidBuilder())
                 .color(0xf26d1b)
                 .flags(FLAMMABLE)
                 .buildAndRegister();
