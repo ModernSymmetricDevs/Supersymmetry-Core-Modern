@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:sulfur"
+          "name": "susy:xenotime_alluvial_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/sulfur"
+  "random_sequence": "susy:blocks/xenotime_alluvial_deposit_block"
 }

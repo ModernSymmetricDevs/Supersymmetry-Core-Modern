@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:platinum_placer"
+          "name": "susy:sulfur_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/platinum_placer"
+  "random_sequence": "susy:blocks/sulfur_deposit_block"
 }

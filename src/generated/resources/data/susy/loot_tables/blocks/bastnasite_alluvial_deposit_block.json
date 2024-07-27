@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:caliche"
+          "name": "susy:bastnasite_alluvial_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/caliche"
+  "random_sequence": "susy:blocks/bastnasite_alluvial_deposit_block"
 }

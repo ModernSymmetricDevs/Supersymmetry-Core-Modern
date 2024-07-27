@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:euxenite_alluvial"
+          "name": "susy:sulfate_evaporite_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/euxenite_alluvial"
+  "random_sequence": "susy:blocks/sulfate_evaporite_deposit_block"
 }

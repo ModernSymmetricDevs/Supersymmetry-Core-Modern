@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:potash"
+          "name": "susy:phosphorite_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/potash"
+  "random_sequence": "susy:blocks/phosphorite_deposit_block"
 }

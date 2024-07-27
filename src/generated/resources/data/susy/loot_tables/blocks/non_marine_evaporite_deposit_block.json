@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:phosphorite"
+          "name": "susy:non_marine_evaporite_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/phosphorite"
+  "random_sequence": "susy:blocks/non_marine_evaporite_deposit_block"
 }

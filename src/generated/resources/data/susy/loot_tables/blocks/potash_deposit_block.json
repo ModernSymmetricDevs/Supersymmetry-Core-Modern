@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:carbonate_evaporite"
+          "name": "susy:potash_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/carbonate_evaporite"
+  "random_sequence": "susy:blocks/potash_deposit_block"
 }

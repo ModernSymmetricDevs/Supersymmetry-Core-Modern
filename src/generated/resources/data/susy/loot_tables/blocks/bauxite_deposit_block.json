@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:monazite_alluvial"
+          "name": "susy:bauxite_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/monazite_alluvial"
+  "random_sequence": "susy:blocks/bauxite_deposit_block"
 }

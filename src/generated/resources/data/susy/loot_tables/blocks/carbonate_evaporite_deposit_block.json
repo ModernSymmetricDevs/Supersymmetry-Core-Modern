@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:non_marine_evaporite"
+          "name": "susy:carbonate_evaporite_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/non_marine_evaporite"
+  "random_sequence": "susy:blocks/carbonate_evaporite_deposit_block"
 }

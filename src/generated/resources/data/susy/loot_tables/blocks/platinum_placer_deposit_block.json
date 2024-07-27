@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:halide_evaporite"
+          "name": "susy:platinum_placer_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/halide_evaporite"
+  "random_sequence": "susy:blocks/platinum_placer_deposit_block"
 }

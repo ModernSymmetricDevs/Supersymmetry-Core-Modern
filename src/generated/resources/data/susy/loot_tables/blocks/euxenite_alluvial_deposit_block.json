@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "susy:gold_alluvial"
+          "name": "susy:euxenite_alluvial_deposit_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "susy:blocks/gold_alluvial"
+  "random_sequence": "susy:blocks/euxenite_alluvial_deposit_block"
 }
