@@ -287,7 +287,7 @@ public class SuSyBlocks {
     private static void registerResourceBlocks() {
         for (BlockResource.ResourceBlockType resourceBlockType : BlockResource.ResourceBlockType.values()) {
             BlockEntry<BlockResource> blockEntry = REGISTRATE
-                    .block(resourceBlockType.getName(), p -> new BlockResource(p, resourceBlockType))
+                    .block("%s_deposit_block".formatted(resourceBlockType.getName()), p -> new BlockResource(p, resourceBlockType))
                     .initialProperties(() -> Blocks.STONE)
                     .properties(p -> p)
                     .addLayer(() -> RenderType::cutoutMipped)
