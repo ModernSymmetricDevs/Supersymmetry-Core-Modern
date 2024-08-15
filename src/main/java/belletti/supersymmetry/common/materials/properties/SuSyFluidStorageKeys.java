@@ -1,7 +1,7 @@
 package belletti.supersymmetry.common.materials.properties;
 
 import belletti.supersymmetry.Supersymmetry;
-import belletti.supersymmetry.common.materials.info.SuSyMaterialIconType;
+import belletti.supersymmetry.api.materials.SuSyMaterialIconType;
 import com.gregtechceu.gtceu.api.fluids.FluidState;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKey;
 

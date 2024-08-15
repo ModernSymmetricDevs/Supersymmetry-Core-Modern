@@ -5,7 +5,7 @@ import belletti.supersymmetry.common.block.SuSyStoneTypes;
 import belletti.supersymmetry.common.data.SuSyBlocks;
 import belletti.supersymmetry.common.materials.SuSyMaterialFlags;
 import belletti.supersymmetry.common.materials.SuSyMaterials;
-import belletti.supersymmetry.common.materials.info.SuSyMaterialIconType;
+import belletti.supersymmetry.api.materials.SuSyMaterialIconType;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
