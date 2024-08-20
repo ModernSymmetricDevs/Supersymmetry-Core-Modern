@@ -67,9 +67,9 @@ public class SuSyMaterials {
         }
     }
 
-    public static void safeAddFluid(Material material, FluidStorageKey key) {
+    public static void safeAddFluid(Material material, FluidStorageKey key, FluidBuilder fb) {
         FluidProperty prop = new FluidProperty();
-        prop.getStorage().enqueueRegistration(key, new FluidBuilder());
+        prop.getStorage().enqueueRegistration(key, fb);
 
         try {
             material.setProperty(PropertyKey.FLUID, prop);
@@ -94,7 +94,7 @@ public class SuSyMaterials {
         safeSetProperty(GTMaterials.Scandium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Germanium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Selenium, PropertyKey.DUST, new DustProperty());
-        safeAddFluid(GTMaterials.Bromine, FluidStorageKeys.LIQUID);
+        safeAddFluid(GTMaterials.Bromine, FluidStorageKeys.LIQUID, new FluidBuilder());
         safeSetProperty(GTMaterials.Rubidium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Strontium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Zirconium, PropertyKey.DUST, new DustProperty());
@@ -112,17 +112,17 @@ public class SuSyMaterials {
         safeSetProperty(GTMaterials.Hafnium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Rhenium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Thallium, PropertyKey.DUST, new DustProperty());
-        safeAddFluid(GTMaterials.CalciumChloride, FluidStorageKeys.LIQUID);
-        safeAddFluid(GTMaterials.MagnesiumChloride, FluidStorageKeys.LIQUID);
-        safeAddFluid(GTMaterials.RockSalt, FluidStorageKeys.LIQUID);
-        safeAddFluid(GTMaterials.Salt, FluidStorageKeys.LIQUID);
-        safeAddFluid(GTMaterials.SodiumHydroxide, FluidStorageKeys.LIQUID);
-        safeAddFluid(GTMaterials.Sodium, FluidStorageKeys.LIQUID);
+        safeAddFluid(GTMaterials.CalciumChloride, FluidStorageKeys.LIQUID, new FluidBuilder());
+        safeAddFluid(GTMaterials.MagnesiumChloride, FluidStorageKeys.LIQUID, new FluidBuilder());
+        safeAddFluid(GTMaterials.RockSalt, FluidStorageKeys.LIQUID, new FluidBuilder());
+        safeAddFluid(GTMaterials.Salt, FluidStorageKeys.LIQUID, new FluidBuilder());
+        safeAddFluid(GTMaterials.SodiumHydroxide, FluidStorageKeys.LIQUID, new FluidBuilder());
+        safeAddFluid(GTMaterials.Sodium, FluidStorageKeys.LIQUID, new FluidBuilder());
         safeSetProperty(GTMaterials.Phosphorus, PropertyKey.INGOT, new IngotProperty());
 
         FluidProperty fluidProperty = new FluidProperty();
         fluidProperty.getStorage().enqueueRegistration(FluidStorageKeys.LIQUID, new FluidBuilder().temperature(317));
-        safeAddFluid(GTMaterials.Phosphorus, FluidStorageKeys.LIQUID);
+        safeAddFluid(GTMaterials.Phosphorus, FluidStorageKeys.LIQUID, new FluidBuilder());
         GTMaterials.Phosphorus.setMaterialARGB(0xfffed6);
 
         GTMaterials.HydrochloricAcid.setFormula("(H2O)(HCl)", true);
@@ -130,7 +130,7 @@ public class SuSyMaterials {
 
         removeProperty(PropertyKey.FLUID, GTMaterials.Dimethyldichlorosilane);
 
-        safeAddFluid(GTMaterials.Dimethyldichlorosilane, FluidStorageKeys.LIQUID);
+        safeAddFluid(GTMaterials.Dimethyldichlorosilane, FluidStorageKeys.LIQUID, new FluidBuilder());
         safeSetProperty(GTMaterials.Iron3Chloride, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Nitrochlorobenzene, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Dichlorobenzene, PropertyKey.DUST, new DustProperty());
