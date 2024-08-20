@@ -1,12 +1,11 @@
 package belletti.supersymmetry.common.materials;
 
 import belletti.supersymmetry.Supersymmetry;
-import belletti.supersymmetry.common.materials.groovy.GroovySuSyFirstDegreeMaterials;
-import belletti.supersymmetry.common.materials.groovy.GroovySuSyMaterials;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
+import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKey;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
@@ -55,9 +54,6 @@ public class SuSyMaterials {
         SuSyUnknownCompositionMaterials.init();
 
         GTFOMaterials.init();
-
-        // @TODO: this should get moved to kubejs
-        GroovySuSyMaterials.init();
     }
 
     public static void safeSetProperty(Material material, PropertyKey key, IMaterialProperty property) {
@@ -68,6 +64,20 @@ public class SuSyMaterials {
                 throw e;
             }
             Supersymmetry.LOGGER.warn("Suppressed error while setting property for {}: {}", material.getName(), e.getMessage());
+        }
+    }
+
+    public static void safeAddFluid(Material material, FluidStorageKey key) {
+        FluidProperty prop = new FluidProperty();
+        prop.getStorage().enqueueRegistration(key, new FluidBuilder());
+
+        try {
+            material.setProperty(PropertyKey.FLUID, prop);
+        } catch (IllegalArgumentException e) {
+            if (!e.getMessage().contains("already registered")) {
+                throw e;
+            }
+            Supersymmetry.LOGGER.warn("Fluid already registered {}: {}", material.getName(), e.getMessage());
         }
     }
 
@@ -84,7 +94,7 @@ public class SuSyMaterials {
         safeSetProperty(GTMaterials.Scandium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Germanium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Selenium, PropertyKey.DUST, new DustProperty());
-        safeSetProperty(GTMaterials.Bromine, PropertyKey.FLUID, new FluidProperty());
+        safeAddFluid(GTMaterials.Bromine, FluidStorageKeys.LIQUID);
         safeSetProperty(GTMaterials.Rubidium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Strontium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Zirconium, PropertyKey.DUST, new DustProperty());
@@ -102,17 +112,17 @@ public class SuSyMaterials {
         safeSetProperty(GTMaterials.Hafnium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Rhenium, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Thallium, PropertyKey.DUST, new DustProperty());
-        safeSetProperty(GTMaterials.CalciumChloride, PropertyKey.FLUID, new FluidProperty());
-        safeSetProperty(GTMaterials.MagnesiumChloride, PropertyKey.FLUID, new FluidProperty());
-        safeSetProperty(GTMaterials.RockSalt, PropertyKey.FLUID, new FluidProperty());
-        safeSetProperty(GTMaterials.Salt, PropertyKey.FLUID, new FluidProperty());
-        safeSetProperty(GTMaterials.SodiumHydroxide, PropertyKey.FLUID, new FluidProperty());
-        safeSetProperty(GTMaterials.Sodium, PropertyKey.FLUID, new FluidProperty());
+        safeAddFluid(GTMaterials.CalciumChloride, FluidStorageKeys.LIQUID);
+        safeAddFluid(GTMaterials.MagnesiumChloride, FluidStorageKeys.LIQUID);
+        safeAddFluid(GTMaterials.RockSalt, FluidStorageKeys.LIQUID);
+        safeAddFluid(GTMaterials.Salt, FluidStorageKeys.LIQUID);
+        safeAddFluid(GTMaterials.SodiumHydroxide, FluidStorageKeys.LIQUID);
+        safeAddFluid(GTMaterials.Sodium, FluidStorageKeys.LIQUID);
         safeSetProperty(GTMaterials.Phosphorus, PropertyKey.INGOT, new IngotProperty());
 
         FluidProperty fluidProperty = new FluidProperty();
         fluidProperty.getStorage().enqueueRegistration(FluidStorageKeys.LIQUID, new FluidBuilder().temperature(317));
-        safeSetProperty(GTMaterials.Phosphorus, PropertyKey.FLUID, fluidProperty);
+        safeAddFluid(GTMaterials.Phosphorus, FluidStorageKeys.LIQUID);
         GTMaterials.Phosphorus.setMaterialARGB(0xfffed6);
 
         GTMaterials.HydrochloricAcid.setFormula("(H2O)(HCl)", true);
@@ -120,7 +130,7 @@ public class SuSyMaterials {
 
         removeProperty(PropertyKey.FLUID, GTMaterials.Dimethyldichlorosilane);
 
-        safeSetProperty(GTMaterials.Dimethyldichlorosilane, PropertyKey.FLUID, new FluidProperty());
+        safeAddFluid(GTMaterials.Dimethyldichlorosilane, FluidStorageKeys.LIQUID);
         safeSetProperty(GTMaterials.Iron3Chloride, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Nitrochlorobenzene, PropertyKey.DUST, new DustProperty());
         safeSetProperty(GTMaterials.Dichlorobenzene, PropertyKey.DUST, new DustProperty());

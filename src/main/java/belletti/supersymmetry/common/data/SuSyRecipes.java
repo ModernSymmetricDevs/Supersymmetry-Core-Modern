@@ -5,10 +5,7 @@ import belletti.supersymmetry.common.block.BlockDeposit;
 import belletti.supersymmetry.common.materials.SuSyMaterials;
 import belletti.supersymmetry.common.recipes.StoneRecipes;
 import belletti.supersymmetry.common.recipes.SuSyMaterialRecipeHandler;
-import belletti.supersymmetry.data.recipe.LatexCollectorRecipes;
-import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.minecraft.data.recipes.FinishedRecipe;
 
@@ -66,8 +63,5 @@ public class SuSyRecipes {
                 .EUt(-32)
                 .duration(200)
                 .save(provider);
-
-
-        LatexCollectorRecipes.init(provider);
     }
 }
