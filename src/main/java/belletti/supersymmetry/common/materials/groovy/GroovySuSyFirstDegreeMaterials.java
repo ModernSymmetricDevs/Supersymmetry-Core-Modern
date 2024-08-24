@@ -2691,7 +2691,7 @@ public class GroovySuSyFirstDegreeMaterials {
                 .iconSet(GLASS)
                 .buildAndRegister();
 
-        HydrogenIodide = new Material.Builder(Supersymmetry.id("hydrogen_iodide"))
+        GroovySuSyMaterials.HydrogenIodide = new Material.Builder(Supersymmetry.id("hydrogen_iodide"))
                 .gas(new FluidBuilder().attribute(FluidAttributes.ACID))
                 .components()
                 .colorAverage()
